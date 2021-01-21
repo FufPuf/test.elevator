@@ -7,6 +7,7 @@ class Passenger implements PassengerInterface
 {
     private $enteredFloor;
     private $requiredFloor;
+    private $passengerCourse;
     private $passengerWeight;
     private $id;
 
@@ -16,6 +17,12 @@ class Passenger implements PassengerInterface
         $this->requiredFloor = $requiredFloor;
         $this->passengerWeight = $passengerWeight;
         $this->id = uniqid();
+
+        if($this->enteredFloor < $this->requiredFloor) {
+            $this->passengerCourse = 'up';
+        } else {
+            $this->passengerCourse = 'down';
+        }
     }
 
     public function getEnteredFloor() : int
@@ -26,6 +33,11 @@ class Passenger implements PassengerInterface
     public function getRequiredFloor() : int
     {
         return $this->requiredFloor;
+    }
+
+    public function getPassengerCourse() : string
+    {
+        return $this->passengerCourse;
     }
 
     public function getPassengerWeight() : int

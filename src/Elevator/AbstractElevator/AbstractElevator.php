@@ -8,7 +8,7 @@ abstract class AbstractElevator implements ElevatorInterface
 
     abstract public function __construct(PassengerInterface $passenger);
 
-    abstract public function move();
+    abstract public function startWork();
 
     protected function elevatorStop($floor)
     {
@@ -25,13 +25,9 @@ abstract class AbstractElevator implements ElevatorInterface
         echo "Close door on " . $floor . "</br>";
     }
 
-    protected function moveUp($floor)
+    protected function moveTo($floor)
     {
-        echo "Move Up to " . $floor . "</br>";
+        echo "Move to " . $floor . "</br>";
     }
 
-    protected function moveDown($floor)
-    {
-        echo "Move Down to " . $floor . "</br>";
-    }
 }
